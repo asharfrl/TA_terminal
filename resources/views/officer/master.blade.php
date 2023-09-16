@@ -1,0 +1,5 @@
+@include('officer.header')
+@include('officer.navbar')
+@include('officer.sidebar')
+@include('officer.content')
+@include('officer.footer')
