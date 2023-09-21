@@ -45,7 +45,7 @@
                           <input type="text" name="email" class="form-control" id="yourEmail" required>
                           <div class="invalid-feedback">Tolong, Masukkan Email Dengan Benar !</div>
                         </div>
-                      </div>
+                    </div>
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
@@ -101,6 +101,114 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('NiceAdmin')}}/assets/js/main.js"></script>
+
+  <script>
+  // Mendapatkan elemen input email
+  var emailInput = document.getElementById('yourEmail');
+
+  // Mendapatkan elemen pesan kesalahan
+  var errorFeedback = document.querySelector('.invalid-feedback');
+
+  // Menambahkan event listener untuk memeriksa input saat perubahan terjadi
+  emailInput.addEventListener('input', function () {
+    // Mendapatkan nilai input email
+    var emailValue = emailInput.value;
+
+    // Memeriksa apakah email mengandung simbol "@"
+    if (emailValue.includes('@')) {
+      // Email valid, menghapus pesan kesalahan
+      errorFeedback.style.display = 'none';
+    } else {
+      // Email tidak valid, menampilkan pesan kesalahan
+      errorFeedback.style.display = 'block';
+    }
+  });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mendapatkan elemen formulir
+      var form = document.querySelector('form.needs-validation');
+
+      // Mendapatkan elemen input
+      var nameInput = document.getElementById('yourName');
+      var emailInput = document.getElementById('yourEmail');
+      var usernameInput = document.getElementById('yourUsername');
+      var passwordInput = document.getElementById('yourPassword');
+      var termsInput = document.getElementById('acceptTerms');
+
+      // Mendapatkan elemen pesan kesalahan
+      var nameError = nameInput.nextElementSibling;
+      var emailError = emailInput.nextElementSibling;
+      var usernameError = usernameInput.nextElementSibling;
+      var passwordError = passwordInput.nextElementSibling;
+      var termsError = termsInput.nextElementSibling;
+
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        // Validasi nama (tidak boleh kosong)
+        if (!nameInput.value) {
+          nameError.textContent = 'Tolong, Masukkan Nama Anda!';
+        } else {
+          nameError.textContent = '';
+        }
+
+        // Validasi email (harus mengandung @)
+        if (!emailInput.value.includes('@')) {
+          emailError.textContent = 'Tolong, Masukkan Email Dengan Benar!';
+        } else {
+          emailError.textContent = '';
+        }
+
+        // Validasi username (tidak boleh kosong)
+        if (!usernameInput.value) {
+          usernameError.textContent = 'Masukkan Username Pilihan Anda!';
+        } else {
+          usernameError.textContent = '';
+        }
+
+        // Validasi password (tidak boleh kosong)
+        if (!passwordInput.value) {
+          passwordError.textContent = 'Masukkan Password Pilihan Anda!';
+        } else {
+          passwordError.textContent = '';
+        }
+
+        // Validasi persetujuan terms
+        if (!termsInput.checked) {
+          termsError.textContent = 'Anda Harus Setuju Untuk Mengirim.';
+        } else {
+          termsError.textContent = '';
+        }
+      });
+
+      // Menghapus pesan kesalahan saat input berubah
+      nameInput.addEventListener('input', function () {
+        nameError.textContent = '';
+      });
+
+      emailInput.addEventListener('input', function () {
+        emailError.textContent = '';
+      });
+
+      usernameInput.addEventListener('input', function () {
+        usernameError.textContent = '';
+      });
+
+      passwordInput.addEventListener('input', function () {
+        passwordError.textContent = '';
+      });
+
+      termsInput.addEventListener('change', function () {
+        termsError.textContent = '';
+      });
+    });
+  </script>
+
 
 </body>
 

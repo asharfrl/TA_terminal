@@ -3,8 +3,32 @@
 @include('officer.sidebar')
 @include('officer.footer')
 
+<style>
+      .table-striped tbody tr:hover {
+        background-color: #ddd;
+    }
+
+    .btn:hover {
+        background-color: #e57373; /* Ganti dengan warna yang Anda inginkan */
+    }
+
+    .table th, .table td {
+        padding: 8px; /* Ganti dengan ukuran padding yang Anda inginkan */
+    }
+</style>
+
 <main id="main" class="main">
-  <div class="container-fluid py-4">
+    <div class="pagetitle">
+        <h1>Data Petugas</h1>
+        <nav>
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/dataPetugas">Data Petugas</a></li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+  <div class="container-fluid py-4" style="border-radius: 100px">
     <div class="row">
       <div class="col-12">
         <div class="card mb-4">
@@ -61,7 +85,7 @@
                           <a href="{{ route('dataPetugas.edit', $row->id) }}" class="btn btn-sm mb-0 me-1 btn-warning">Edit</a>
                           @csrf
                           @method('DELETE')
-                          <button type="button" class="btn btn-sm mb-0 me-1 btn-danger" onclick="hapusData({{ $row->id }})">Delete</button>
+                          <button type="button" onclick="return confirm('Apakah Anda yakin?')" class="btn btn-sm mb-0 me-1 btn-danger">Delete</button>
                         </form>
                       </td>
                     </tr>

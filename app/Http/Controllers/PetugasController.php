@@ -105,6 +105,6 @@ class PetugasController extends Controller
         $petugas = User::find($id);
         $petugas->delete();
 
-        return redirect('/dataPetugas')->with('delete', 'Data berhasil dihapus!');
+        return redirect('/dataPetugas')->with('message', 'Data berhasil dihapus!');
     }
 }

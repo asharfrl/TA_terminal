@@ -14,6 +14,10 @@ class MasyarakatController extends Controller
         return view('masyarakat.master');
     }
 
+    public function laporan()
+    {
+        return view('laporan.index');
+    }
     /**
      * Show the form for creating a new resource.
      */

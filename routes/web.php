@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\BerangkatController;
 
 
 /*
@@ -23,7 +24,7 @@ use App\Http\Controllers\PetugasController;
 // });
 
 Route::get('/', [MasyarakatController::class, 'index']);
-Route::get('/laporan', [LaporanController::class, 'index']);
+Route::get('/laporan', [MasyarakatController::class, 'laporan']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('welcome');
 Route::post('/logins', [LoginController::class, 'authanticate']);
@@ -40,4 +41,7 @@ Route::get('/Profile', function () {
 });
 
 Route::resource('dataPetugas', PetugasController::class);
+Route::resource('dataLaporan', LaporanController::class);
+Route::resource('berangkat', BerangkatController::class);
+
 

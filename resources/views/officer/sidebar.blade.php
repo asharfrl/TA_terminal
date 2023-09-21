@@ -3,8 +3,8 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-            <a class="nav-link " href="/Dashboard">
-              <i class="bi bi-grid"></i>
+            <a class="nav-link collapsed" href="/Dashboard">
+              <i class="bi bi-motherboard"></i>
               <span>Dashboard</span>
             </a>
         </li>
@@ -17,12 +17,25 @@
       </li>
 
     @elseif (auth()->user()->level == 'Petugas')
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/dataLaporan">
+          <i class="bi bi-clipboard-data-fill"></i>
+          <span>Data Laporan</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/berangkat">
+          <i class="bi bi-bus-front"></i>
+          <span>Data Keberangkatan Bus</span>
+        </a>
+      </li>
 
     @endif
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="/Profile">
-          <i class="bi bi-person-fill"></i>
+          <i class="bi bi-file-person"></i>
           <span>Profile</span>
         </a>
       </li>

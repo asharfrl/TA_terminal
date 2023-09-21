@@ -27,7 +27,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Email</label>
-                                        <input class="form-control" name="email" id="email" type="text" placeholder="Masukkan username ..." value="{{ old('email') }}" required autofocus>
+                                        <input class="form-control" name="email" id="email" type="text" placeholder="Masukkan username ..." value="{{ old('email', $petugas->email) }}" required autofocus>
                                         @error('email')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -74,6 +74,7 @@
                             </div>
                             <hr class="horizontal dark">
                             <div class="d-flex justify-content-end mt-4">
+                                <a href="javascript:history.back()" class="btn btn-danger btn-sm me-3">Kembali</a>
                                 <button class="btn btn-primary btn-sm me-3">Save</button>
                             </div>
                         </form>

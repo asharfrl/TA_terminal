@@ -4,7 +4,7 @@
 
       <a href="/" class="logo d-flex align-items-center">
         <img src="FlexStart/assets/img/logo.png" alt="">
-        <span >Terminal Tipe A </span>
+        <span>Terminal Tipe A</span>
       </a>
 
       <nav id="navbar" class="navbar">
