@@ -77,7 +77,9 @@
       <!-- ======= About Section ======= -->
       <section id="about" class="about">
 
-        <div class="container" data-aos="fade-up" style="background-image: url('');">
+      <section id="about" class="about" style="background-image:url('{{asset('FlexStart')}}/assets/img/terminal/1.jpeg'">
+
+        <div class="container" data-aos="fade-up" >
           <div class="row gx-0">
 
             <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
@@ -145,7 +147,7 @@
               <div class="portfolio-wrap">
                 <img src="FlexStart/assets/img/terminal/6.jpeg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>Parking Area</h4>
+                  <h4>Shalter Keberangkatan</h4>
                   {{-- <p>App</p> --}}
                   <div class="portfolio-links">
                     <a href="FlexStart/assets/img/terminal/6.jpeg" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Parking Area"><i class="bi bi-plus"></i></a>
@@ -182,12 +184,12 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
-                <img src="FlexStart/assets/img/terminal/5.jpeg" class="img-fluid" alt="">
+                <img src="{{asset('FlexStart')}}/assets/img/terminal/5.jpeg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>Parking Area 2</h4>
+                  <h4>Parking Bus Area</h4>
                   {{-- <p>App</p> --}}
                   <div class="portfolio-links">
-                    <a href="FlexStart/assets/img/terminal/5.jpeg" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Parking Area 2"><i class="bi bi-plus"></i></a>
+                    <a href="{{asset('FlexStart')}}/assets/img/terminal/5.jpeg" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Parking Area 2"><i class="bi bi-plus"></i></a>
                   </div>
                 </div>
               </div>

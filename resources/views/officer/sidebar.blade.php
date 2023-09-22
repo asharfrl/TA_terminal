@@ -17,6 +17,19 @@
       </li>
 
     @elseif (auth()->user()->level == 'Petugas')
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/dataLaporan">
+          <i class="bi bi-clipboard-data-fill"></i>
+          <span>Data Laporan</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/berangkat">
+          <i class="bi bi-bus-front"></i>
+          <span>Data Keberangkatan Bus</span>
+        </a>
+      </li>
 
     @endif
 
