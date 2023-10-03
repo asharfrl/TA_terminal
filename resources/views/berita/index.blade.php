@@ -3,16 +3,9 @@
 @include('officer.sidebar')
 @include('officer.footer')
 
-<style>
-    .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    }
-</style>
 <main id="main" class="main">
     <div class="pagetitle">
-        <h1>Data Laporan</h1>
+        <h1>Data Berita</h1>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
@@ -20,7 +13,7 @@
             <nav>
                 <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/Dashboard">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="/dataLaporan">Data Laporan</a></li>
+                <li class="breadcrumb-item"><a href="/dataLaporan">Data Berita</a></li>
                 </ol>
             </nav>
         </div>
@@ -40,52 +33,55 @@
                     {{ session('delete') }}
                 </div>
               @endif
+              <div class="card-header pb-0 d-flex justify-content-end">
+                <div>
+                  <a href="/berita/create" class="btn btn-sm mb-0 me-1 btn-success">Create</a>
+                </div>
+              </div>
               <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
                   <table class="table align-items-center mt-4 mb-0">
                     <thead>
                       <tr>
                         <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">No</th>
-                        <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Nama Pelapor</th>
-                        <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Kontak</th>
-                        <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Tipe</th>
-                        <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Pesan</th>
-                        <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Waktu</th>
+                        <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Judul Berita</th>
+                        <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Tanggal</th>
+                        <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Foto</th>
+                        <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                    @php
-                    $pageNumber = $laporan->currentPage();
-                    $itemsPerPage = $laporan->perPage();
-                    $startingNumber = ($pageNumber - 1) * $itemsPerPage + 1;
-                    @endphp
-                      @foreach($laporan as $row)
+                      @foreach($berita as $row)
                         <tr>
                           <td class="text-xs font-weight-bolder" style="text-align: center;">
-                            {{ $startingNumber++ }}
+                            {{ $loop->iteration }}
                           </td>
                           <td class="text-xs font-weight-bolder" style="text-align: center;">
-                            {{ $row->nama_pelapor }}
+                            {{ $row->judul }}
                           </td>
                           <td class="text-xs font-weight-bolder" style="text-align: center;">
-                            0{{ $row->kontak }}
+                            {{ $row->tgl }}
                           </td>
                           <td class="text-xs font-weight-bolder" style="text-align: center;">
-                            {{ $row->tipe }}
+                            <img src="{{ asset('img/'.$row->foto) }}" width="100px" style="border-radius: 10px;">
                           </td>
+                          {{-- <td class="text-xs font-weight-bolder" style="text-align: center;">
+                            <a href="{{ asset('img/'.$row->foto) }}" target="_blank" data-toggle="modal" data-target="#imageModal">
+                                <img src="{{ asset('img/'.$row->foto) }}" width="100px" style="border-radius: 10px;">
+                            </a>
+                          </td> --}}
                           <td class="text-xs font-weight-bolder" style="text-align: center;">
-                            {{ ($row->pesan) }}
-                          </td>
-                          <td class="text-xs font-weight-bolder" style="text-align: center;">
-                            {{ $row->created_at->locale('id')->isoFormat('D MMMM YYYY H:mm') }}
+                            <form id="delete-form-{{ $row->id }}" action="{{ route('berita.destroy', $row->id) }}" method="POST">
+                              <a href="{{ route('berita.edit', $row->id) }}" class="btn btn-sm mb-0 me-1 btn-warning">Edit</a>
+                              @csrf
+                              @method('DELETE')
+                              <button onclick="return confirm('Apakah Anda yakin?')" class="btn btn-sm mb-0 me-1 btn-danger">Delete</button>
+                            </form>
                           </td>
                         </tr>
                       @endforeach
                     </tbody>
-                </table>
-                <div class="pagination">
-                    {{ $laporan->onEachSide(1)->links() }}
-                </div>
+                  </table>
                 </div>
               </div>
             </div>

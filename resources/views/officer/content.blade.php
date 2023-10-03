@@ -50,7 +50,7 @@
                                 <div class="icon">
                                     <i class="bi bi-diagram-3"></i>
                                 </div>
-                                <h3>-</h3>
+                                <h3>{{ $jumlahPetugas }}</h3>
                                 <p>Data Petugas</p>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                                 <div class="icon">
                                     <i class="bi bi-clipboard-data-fill"></i>
                                 </div>
-                                <h3>-</h3>
+                                <h3>{{ $jumlahLaporan }}</h3>
                                 <p>Data Laporan</p>
                             </div>
                         </div>
@@ -76,14 +76,14 @@
 
                 <!-- small box 2 -->
                 <div class="col-lg-3 col-6">
-                    <a href="/berangkat">
+                    <a href="/berita">
                         <div class="small-box bg-danger">
                             <div class="inner">
                                 <div class="icon">
-                                    <i class="bi bi-bus-front"></i>
+                                    <i class="bi bi-newspaper"></i>
                                 </div>
-                                <h3>-</h3>
-                                <p>Data Keberangkatan Bus</p>
+                                <h3>{{ $jumlahBerita }}</h3>
+                                <p>Data Berita</p>
                             </div>
                         </div>
                     </a>

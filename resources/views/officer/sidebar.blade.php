@@ -31,6 +31,13 @@
         </a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/berita">
+          <i class="bi bi-newspaper"></i>
+          <span>Data Berita</span>
+        </a>
+      </li>
+
     @endif
 
       <li class="nav-item">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Laporan;
 
 class LaporanController extends Controller
 {
@@ -11,9 +12,15 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        return view('kelolalaporan.index');
+        $laporan = Laporan::latest()->paginate(5);
+        return view('kelolalaporan.index', compact('laporan'));
     }
 
+    public function layanan()
+    {
+        $title = "LAPORAN PELAYANAN";
+        return view('laporan.index', compact('title'));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -27,7 +34,13 @@ class LaporanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $laporan = new Laporan;
+        $laporan->nama_pelapor = $request->nama_pelapor;
+        $laporan->kontak = $request->kontak;
+        $laporan->tipe = $request->tipe;
+        $laporan->pesan = $request->pesan;
+        $laporan->save();
+        return redirect()->back()->with('success', 'Laporan Anda Telah Masuk!');
     }
 
     /**

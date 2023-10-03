@@ -52,40 +52,40 @@
               <table class="table align-items-center mt-4 mb-0">
                 <thead>
                   <tr>
-                    <th class="text-uppercase text-xs font-weight-bolder">No</th>
-                    <th class="text-uppercase text-xs font-weight-bolder">Nama Petugas</th>
-                    <th class="text-uppercase text-xs font-weight-bolder">Level</th>
-                    <th class="text-uppercase text-xs font-weight-bolder">Username</th>
-                    <th class="text-uppercase text-xs font-weight-bolder">Email</th>
-                    <th class="text-uppercase text-xs font-weight-bolder">Action</th>
+                    <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">No</th>
+                    <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Nama Petugas</th>
+                    <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Level</th>
+                    <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Username</th>
+                    <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Email</th>
+                    <th class="text-uppercase text-xs font-weight-bolder" style="text-align: center;">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach($petugas as $row)
                     <tr>
-                      <td class="text-xs font-weight-bolder">
+                      <td class="text-xs font-weight-bolder" style="text-align: center;">
                         {{ $loop->iteration }}
                       </td>
-                      <td class="text-xs font-weight-bolder">
+                      <td class="text-xs font-weight-bolder" style="text-align: center;">
                         {{ $row->name }}
                       </td>
-                      <td class="text-xs font-weight-bolder">
+                      <td class="text-xs font-weight-bolder" style="text-align: center;">
                         <span class="{{ strtolower($row->level) }}-text">
                             {{ $row->level }}
                         </span>
                       </td>
-                      <td class="text-xs font-weight-bolder">
+                      <td class="text-xs font-weight-bolder" style="text-align: center;">
                         {{ $row->username }}
                       </td>
-                      <td class="text-xs font-weight-bolder">
+                      <td class="text-xs font-weight-bolder" style="text-align: center;">
                         {{ ($row->email) }}
                       </td>
-                      <td class="text-xs font-weight-bolder">
+                      <td class="text-xs font-weight-bolder" style="text-align: center;">
                         <form id="delete-form-{{ $row->id }}" action="{{ route('dataPetugas.destroy', $row->id) }}" method="POST">
                           <a href="{{ route('dataPetugas.edit', $row->id) }}" class="btn btn-sm mb-0 me-1 btn-warning">Edit</a>
                           @csrf
                           @method('DELETE')
-                          <button type="button" onclick="return confirm('Apakah Anda yakin?')" class="btn btn-sm mb-0 me-1 btn-danger">Delete</button>
+                          <button onclick="return confirm('Apakah Anda yakin?')" class="btn btn-sm mb-0 me-1 btn-danger">Delete</button>
                         </form>
                       </td>
                     </tr>

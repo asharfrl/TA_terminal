@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Laporan;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 
-class MasyarakatController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $title = "TERMINAL | PONDOK CABE";
-        $berita = Berita::latest('created_at')->take(3)->get();
-        return view('masyarakat.master', compact('berita', 'title'));
+        $jumlahPetugas = User::count(); // Menghitung jumlah record petugas
+        $jumlahLaporan = Laporan::count(); // Menghitung jumlah record laporan
+        $jumlahBerita = Berita::count(); // Menghitung jumlah record berita
+        return view('officer.master', compact('jumlahPetugas', 'jumlahLaporan', 'jumlahBerita'));
     }
 
     /**
@@ -36,7 +39,7 @@ class MasyarakatController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
         //
     }
@@ -44,7 +47,7 @@ class MasyarakatController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit()
     {
         //
     }
@@ -52,7 +55,7 @@ class MasyarakatController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
         //
     }
@@ -60,7 +63,7 @@ class MasyarakatController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy()
     {
         //
     }

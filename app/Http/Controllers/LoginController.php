@@ -44,14 +44,14 @@ class LoginController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:225',
             'email' => 'required|max:225|unique:users',
-            'username' => 'required|max:225',
+            'username' => 'required|max:225|unique:users',
             'password' => 'required|min:2|max:225',
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::create($validatedData);
-        return redirect()->route('welcome')->with('loginSuccess', 'Data Berhasil Ditambahkan');
+        return redirect()->route('welcome')->with('RegistSuccess', 'Akun Berhasil Ditambahkan');
 
     }
 

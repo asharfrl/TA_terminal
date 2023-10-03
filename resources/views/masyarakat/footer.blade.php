@@ -5,15 +5,15 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
-            <a href="index.html" class="logo d-flex align-items-center">
-              <img src="FlexStart/assets/img/logo.png" alt="">
-              <span>Terminal Tipe A</span>
+            <a href="#" class="logo d-flex align-items-center">
+              {{-- <img src="{{asset('FlexStart')}}/assets/img/logo.png" alt=""> --}}
+              <span>Terminal Tipe A Pondok Cabe</span>
             </a>
             <p>Kunjungi Sosial Media Terminal Pondok Cabe</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bi bi-tiktok"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.tiktok.com/@terminalpondokcabe" target="_blank" class="twitter"><i class="bi bi-tiktok"></i></a>
+              <a href="https://www.facebook.com/terminal.pondokcabe.73?locale=id_ID" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/terminalpondokcabe/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
             </div>
           </div>
         </div>

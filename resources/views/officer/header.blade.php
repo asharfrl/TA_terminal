@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('NiceAdmin')}}/assets/img/icons8.png" rel="icon">
-  <link href="{{asset('NiceAdmin')}}/assets/img/icons8.png" rel="apple-touch-icon">
+   <link href="{{asset('FlexStart')}}/assets/img/logo.png" rel="icon">
+  <link href="{{asset('FlexStart')}}/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
